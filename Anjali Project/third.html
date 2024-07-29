@@ -11,30 +11,54 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #282c34;
+            overflow: hidden;
         }
 
         .flower-container {
-            text-align: center;
+            position: relative;
+            width: 300px;
+            height: 300px;
         }
 
         .flower {
-            width: 200px;
-            height: 200px;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             opacity: 0;
-            transform: scale(0.5);
+            transform: scale(0.8) rotate(-30deg);
             transition: opacity 2s ease, transform 2s ease;
         }
 
         .flower.show {
             opacity: 1;
-            transform: scale(1);
+            transform: scale(1) rotate(0deg);
+        }
+
+        @keyframes bounce {
+            0% {
+                transform: scale(0.5) rotate(-30deg);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1) rotate(10deg);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .flower.bounce {
+            animation: bounce 2s ease forwards;
         }
     </style>
 </head>
 <body>
     <div class="flower-container">
-        <img src="https://via.placeholder.com/200?text=Flower" alt="Flower" class="flower" id="flower-image">
+        <img src="https://www.w3schools.com/w3images/flowers.jpg" alt="Flower" class="flower bounce" id="flower-image">
     </div>
 
     <script>
