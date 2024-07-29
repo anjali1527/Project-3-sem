@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World Transition</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .transition-text {
+            font-size: 2em;
+            font-weight: bold;
+            color: #333;
+            opacity: 0;
+            transform: translateY(-50px);
+            transition: opacity 2s ease, transform 2s ease;
+        }
+
+        .transition-text.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="transition-text" id="hello-world">
+        Hello, World!
+    </div>
+
+    <script>
+        window.onload = function() {
+            document.getElementById('hello-world').classList.add('show');
+        };
+    </script>
+</body>
+</html>
