@@ -6,15 +6,15 @@
     <title>Telephone Directory - Find and Connect</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f8f9fa;
+            background-color: #f0f2f5;
             color: #333;
             text-align: center;
         }
         header {
-            background-color: #0056b3;
+            background-color: #0044cc;
             color: white;
             padding: 20px 0;
             position: relative;
@@ -22,62 +22,69 @@
         }
         header h1 {
             margin: 0;
-            font-size: 2.5em;
-            font-weight: bold;
+            font-size: 2.8em;
+            font-weight: 700;
         }
         .hero {
-            background: url('https://via.placeholder.com/1600x600?text=Telephone+Directory') no-repeat center center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://via.placeholder.com/1600x600?text=Telephone+Directory') no-repeat center center/cover;
             color: white;
-            padding: 120px 20px;
+            padding: 150px 20px;
             text-align: center;
             position: relative;
-            border-bottom: 5px solid #0056b3;
+            border-bottom: 8px solid #0044cc;
+            margin-bottom: 20px;
         }
         .hero h2 {
-            font-size: 3.2em;
+            font-size: 3.5em;
             margin: 0 0 20px;
-            font-weight: bold;
+            font-weight: 700;
         }
         .hero p {
-            font-size: 1.3em;
+            font-size: 1.4em;
             margin: 0 0 30px;
+            line-height: 1.6;
         }
         .cta-btn {
             display: inline-block;
-            padding: 15px 25px;
+            padding: 15px 30px;
             font-size: 1.2em;
             color: white;
             background-color: #28a745;
             text-decoration: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: background-color 0.3s, transform 0.3s;
         }
         .cta-btn:hover {
             background-color: #218838;
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
         .search-section {
-            padding: 40px 20px;
+            padding: 50px 20px;
             background-color: white;
             border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             margin: 20px auto;
-            max-width: 800px;
+            max-width: 700px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f0f0f0, #ffffff);
         }
         .search-section h2 {
-            font-size: 2.4em;
+            font-size: 2.5em;
             margin-bottom: 20px;
-            font-weight: bold;
+            font-weight: 700;
+            color: #0044cc;
         }
         .search-bar {
             display: flex;
             justify-content: center;
             align-items: center;
             gap: 10px;
-            margin-top: 20px;
         }
         .search-bar input[type="text"] {
-            width: 300px;
+            width: 100%;
+            max-width: 400px;
             padding: 12px;
             font-size: 1.1em;
             border: 1px solid #ced4da;
@@ -86,8 +93,8 @@
             transition: border-color 0.3s, box-shadow 0.3s;
         }
         .search-bar input[type="text"]:focus {
-            border-color: #0056b3;
-            box-shadow: 0 0 5px rgba(0, 86, 179, 0.2);
+            border-color: #0044cc;
+            box-shadow: 0 0 5px rgba(0, 68, 204, 0.2);
             outline: none;
         }
         .search-bar button {
@@ -106,17 +113,18 @@
         }
         .user-info {
             padding: 20px;
-            background-color: #e9ecef;
-            border-radius: 8px;
+            background-color: #f8f9fa;
+            border-radius: 12px;
             margin: 20px auto;
-            max-width: 800px;
+            max-width: 700px;
             text-align: left;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #28a745;
         }
         .user-info h3 {
             margin: 0 0 10px;
             font-size: 1.8em;
-            color: #0056b3;
+            color: #0044cc;
         }
         .user-info p {
             font-size: 1.2em;
@@ -124,17 +132,18 @@
             line-height: 1.6;
         }
         .info-section, .features, .testimonials, .faq {
-            padding: 40px 20px;
+            padding: 50px 20px;
             background-color: white;
             border-radius: 12px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             margin: 20px auto;
             max-width: 900px;
         }
         .info-section h2, .features h2, .testimonials h2, .faq h2 {
-            font-size: 2.4em;
+            font-size: 2.6em;
             margin-bottom: 20px;
-            font-weight: bold;
+            font-weight: 700;
+            color: #0044cc;
         }
         .info-section p, .features p, .testimonials p, .faq p {
             font-size: 1.2em;
@@ -151,7 +160,7 @@
             margin: 10px 0;
             padding: 15px;
             text-align: left;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .testimonials blockquote {
             font-size: 1.2em;
@@ -164,9 +173,9 @@
             border-radius: 8px;
         }
         footer {
-            background-color: #0056b3;
+            background-color: #0044cc;
             color: white;
-            padding: 15px 0;
+            padding: 20px 0;
             position: relative;
             width: 100%;
             bottom: 0;
