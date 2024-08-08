@@ -3,85 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to My Website</title>
+    <title>Telephone Directory - Find and Connect</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: #f8f9fa;
             color: #333;
             text-align: center;
         }
         header {
-            background-color: #007bff;
+            background-color: #0056b3;
             color: white;
             padding: 20px 0;
+            position: relative;
+            z-index: 1000;
         }
         header h1 {
             margin: 0;
             font-size: 2.5em;
+            font-weight: bold;
         }
-        .container {
-            padding: 20px;
+        .hero {
+            background: url('https://via.placeholder.com/1600x600?text=Telephone+Directory') no-repeat center center/cover;
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            border-bottom: 5px solid #0056b3;
         }
-        .section {
-            margin: 20px 0;
-            padding: 20px;
+        .hero h2 {
+            font-size: 3.2em;
+            margin: 0 0 20px;
+            font-weight: bold;
+        }
+        .hero p {
+            font-size: 1.3em;
+            margin: 0 0 30px;
+        }
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            color: white;
+            background-color: #28a745;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .cta-btn:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+        .search-section {
+            padding: 40px 20px;
             background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .search-section h2 {
+            font-size: 2.4em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .search-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .search-bar input[type="text"] {
+            width: 300px;
+            padding: 12px;
+            font-size: 1.1em;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .search-bar input[type="text"]:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 5px rgba(0, 86, 179, 0.2);
+            outline: none;
+        }
+        .search-bar button {
+            padding: 12px 25px;
+            font-size: 1.1em;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .search-bar button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .user-info {
+            padding: 20px;
+            background-color: #e9ecef;
             border-radius: 8px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
+        .user-info h3 {
+            margin: 0 0 10px;
+            font-size: 1.8em;
+            color: #0056b3;
+        }
+        .user-info p {
+            font-size: 1.2em;
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        .info-section, .features, .testimonials, .faq {
+            padding: 40px 20px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 900px;
+        }
+        .info-section h2, .features h2, .testimonials h2, .faq h2 {
+            font-size: 2.4em;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .info-section p, .features p, .testimonials p, .faq p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        .features ul, .faq ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .features li, .faq li {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 15px;
+            text-align: left;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .testimonials blockquote {
+            font-size: 1.2em;
+            border-left: 5px solid #28a745;
+            padding-left: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            text-align: left;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+        }
         footer {
-            background-color: #007bff;
+            background-color: #0056b3;
             color: white;
-            padding: 10px 0;
-            position: absolute;
+            padding: 15px 0;
+            position: relative;
             width: 100%;
             bottom: 0;
+            text-align: center;
         }
         footer p {
             margin: 0;
             font-size: 0.9em;
         }
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 1em;
-            color: white;
-            background-color: #28a745;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .btn:hover {
-            background-color: #218838;
-        }
     </style>
+    <script>
+        function searchPhoneNumber() {
+            const phoneNumber = document.getElementById('phone-number').value;
+            const userInfoSection = document.getElementById('user-info');
+
+            const userDatabase = {
+                '1234567897': { name: 'Aman', age: 20, simProvider: 'Jio' },
+                '9876543210': { name: 'Ravi', age: 25, simProvider: 'Airtel' },
+                '4567891230': { name: 'Simran', age: 30, simProvider: 'BSNL' },
+                '3216549870': { name: 'Pooja', age: 22, simProvider: 'Vi' }
+            };
+
+            const userInfo = userDatabase[phoneNumber];
+            if (userInfo) {
+                userInfoSection.innerHTML = `
+                    <h3>User Information</h3>
+                    <p><strong>Name:</strong> ${userInfo.name}</p>
+                    <p><strong>Age:</strong> ${userInfo.age}</p>
+                    <p><strong>SIM Provider:</strong> ${userInfo.simProvider}</p>
+                `;
+            } else {
+                userInfoSection.innerHTML = '<p>No information available for this phone number.</p>';
+            }
+        }
+    </script>
 </head>
 <body>
     <header>
-        <h1>Welcome to My Website</h1>
+        <h1>Telephone Directory</h1>
     </header>
-    <div class="container">
-        <section class="section">
-            <h2>About Anjali</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <a href="#" class="btn">Learn More</a>
-        </section>
-        <section class="section">
-            <h2>Services</h2>
-            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec vel libero vitae arcu aliquet feugiat.</p>
-            <a href="#" class="btn">Our Services</a>
-        </section>
-        <section class="section">
-            <h2>Contact Us</h2>
-            <p>Phasellus euismod urna vel odio cursus, ac tristique odio fermentum. Integer a urna ut metus aliquet semper.</p>
-            <a href="#" class="btn">Get in Touch</a>
-        </section>
+    <div class="hero">
+        <h2>Connect with Ease</h2>
+        <p>Your ultimate resource for finding and connecting with businesses and individuals.</p>
+        <a href="#" class="cta-btn">Explore Now</a>
+    </div>
+    <div class="search-section">
+        <h2>Search for a Phone Number</h2>
+        <div class="search-bar">
+            <input type="text" id="phone-number" placeholder="Enter phone number">
+            <button onclick="searchPhoneNumber()">Search</button>
+        </div>
+        <div id="user-info" class="user-info">
+            <!-- User information will be displayed here -->
+        </div>
+    </div>
+    <div class="info-section">
+        <h2>What We Offer</h2>
+        <p>Our telephone directory provides a comprehensive and easy-to-use resource for locating contact information across various sectors. Whether you’re searching for local businesses, professionals, or personal contacts, our directory is designed to help you find what you need efficiently.</p>
+        <p>Key features include a robust search engine, accurate and up-to-date information, user-friendly navigation, and secure data handling.</p>
+        <a href="#" class="cta-btn">Learn More</a>
+    </div>
+    <div class="features">
+        <h2>Features</h2>
+        <ul>
+            <li><strong>Advanced Search:</strong> Quickly find contact details using filters and keywords.</li>
+            <li><strong>Verified Listings:</strong> Ensure accuracy with our regularly updated database.</li>
+            <li><strong>User Reviews:</strong> Read and leave reviews to help others make informed decisions.</li>
+            <li><strong>Mobile Friendly:</strong> Access our directory on any device with a responsive design.</li>
+            <li><strong>Secure and Private:</strong> We prioritize your data security with stringent privacy measures.</li>
+        </ul>
+    </div>
+    <div class="testimonials">
+        <h2>What Our Users Say</h2>
+        <blockquote>
+            <p>"The best directory service I've used. It's so easy to find the contact information I need quickly. Highly recommended!"</p>
+            <footer>— Jane Doe, Small Business Owner</footer>
+        </blockquote>
+        <blockquote>
+            <p>"I appreciate the accuracy and ease of use. It’s been a game changer for connecting with local businesses."</p>
+            <footer>— John Smith, Entrepreneur</footer>
+        </blockquote>
+    </div>
+    <div class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <ul>
+            <li><strong>How often is the directory updated?</strong> We update our directory regularly to ensure that the information is current and accurate.</li>
+            <li><strong>Is there a fee to use the directory?</strong> Basic access to the directory is free. Premium features may be available for a fee.</li>
+            <li><strong>Can I add my business to the directory?</strong> Yes, businesses can be added or updated through our submission form. Visit our 'Add Your Business' page for more details.</li>
+            <li><strong>How do I contact customer support?</strong> You can reach our customer support team via the contact form on our website or by email at support@teldirectory.com.</li>
+        </ul>
     </div>
     <footer>
-        <p>&copy; 2024 My Website. All rights reserved.</p>
+        <p>&copy; 2024 Telephone Directory. All rights reserved.</p>
     </footer>
 </body>
 </html>
